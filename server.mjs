@@ -12,9 +12,35 @@ var userDb = [{user:{name: 'james', username: 'jamesisaboss', email: 'jamesisabo
 app.use(express.static('public'));
 
 // Handle GET request for user login
-app.get("/sign-in", async (req,res) => {
+app.post("/sign-in", async (req,res) => {
     try{
-        res.send(userDb)
+
+        let message = ""
+
+        // validate username and password
+        for(let i = 0; i < userDb.length; i++)
+        {
+            if(req.body.u.toLowerCase() == userDb[i]['user']['username'].toLowerCase())
+            {
+
+                if(req.body.p == userDb[i]['user']['password'])
+                {
+                    console.log("Account already exists for this email");
+                    message += "Welcome " + userDb[i]['user']['name'] + "!";
+                }
+
+                else if(req.body.p != userDb[i]['user']['password'])
+                {
+                    console.log("Account already exists for this email");
+                    message += "Password is incorrect";
+                }
+            }
+        }
+
+        if (message === "")
+            message = "User not found"
+
+        res.send(message)
         console.log(200)
     } catch{
         console.log(500)
