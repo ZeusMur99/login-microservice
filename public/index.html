@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Assignment: Async + MW</title>
+    <script src="random.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Async and Express App</h1>
+    <div id="links">
+        <p>
+            Assignment 5: A webpage displaying 2 links: one that sends and HTTP request directly to "https://randomuser.me/api/"
+            and another sending a GET request to an EXPRESS server, which then sends acts as an intermediary for the webpage and 
+            "https://randomuser.me/api/". The program is run by clicking these links, whose default actions have been prevented,
+            and new event handlers have been programmed to carry out the link's respective duties. Once clicked, the response from 
+            the Random Person API will be parsed, and the person's first name, last name, phone number, and email will be displayed
+            below.
+        </p>
+        <br \>
+        <ul>
+            <li>Send <a href="" id="direct-link">Direct Link</a> to Random Person API.</li>
+            <li>
+                Send <a href="/random-person" id="express-link">Express link</a> to send a request to Express server, 
+                which then sends request to Random Person API
+            </li>
+        </ul>
+        
+    </div>
+    <br \>
+    <div id="link-output">
+        <p></p>
+    </div>
+</body>
+
+</html>
